@@ -9,7 +9,7 @@ public class Info : MonoBehaviour
 
     public int otherSub = 0;
     public int otherTask = 0;
-    // Вот это всё надо для передачи инофрмации между скриптами
+    // That's all it takes to transfer information between scripts
 
     public void Sub(int Sub)
     {
