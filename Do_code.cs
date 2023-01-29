@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Do_code : MonoBehaviour
 {
-    // объявление всех полей
+
+    // declaration of all fields
     public Text code; 
 
     public Button History;
@@ -33,7 +34,7 @@ public class Do_code : MonoBehaviour
 
     public Camera firstScreen;
     public Camera secondScreen;
-    // присвоение значений полей
+    // assigning field values
     void Start()
     {
         HistoryPosition = History.GetComponent<Transform>().position;
@@ -44,7 +45,7 @@ public class Do_code : MonoBehaviour
         RussiaMoreInfo.SetActive(false);
         panel.SetActive(false);
     }
-    // реализация расскрытия более подробного списка заданий(пример История>>Тема1,Тема2)
+    // implementation of the disclosure of a more detailed list of tasks (example History>>Thema1,Thema2)
     public void On_Lesson_History()
     {
         if (anotherSelect == false || whatIndexSub == 0)
@@ -126,7 +127,7 @@ public class Do_code : MonoBehaviour
             }
         }
     }
-    // методы для получения значения выбронаго предмета пример(нажата кнопка "История" в переменной а1 значение 0 и т.д.)
+    // methods for obtaining the value of the discarded object example (the "History" button is pressed in the variable a1 value 0, etc.)
     public void UWUSUB(int a1)
     {
         Info info = gameObject.GetComponent<Info>();
@@ -135,7 +136,7 @@ public class Do_code : MonoBehaviour
         selectSub = a1;
         Debug.Log("Индекс предмета:" + a1);
     }
-    // методы для получения значения выбраной темы пример(нажата кнопка "Кнеязи Древний Руси" в переменной а2 значение 0 и т.д)
+    // methods for obtaining the value of the selected topic example (the button "Kneyazi Ancient Rus" is pressed in the variable a2 value 0, etc.)
     public void UWUTASK(int a2)
     {
         Info info = gameObject.GetComponent<Info>();
@@ -144,7 +145,7 @@ public class Do_code : MonoBehaviour
         selectTask = a2;
         Debug.Log("Индекс задания:" + a2);
     }
-    // проверка на то запонены ли переменные а1 и а2
+    // checking whether variables a1 and a2 are filled in
     void Update()
     {
         Info info = gameObject.GetComponent<Info>();
@@ -165,7 +166,7 @@ public class Do_code : MonoBehaviour
             info.allSelect = false;
         }
 
-        if (info.allSelect == true && isOnCenter == true)// пересенная isOnCenter нужна для убеждения того что пользователь не свернул случайно меню и точно готов к генерации
+        if (info.allSelect == true && isOnCenter == true)// the isOnCenter variable is needed to make sure that the user has not accidentally collapsed the menu and is exactly ready for generation
         {
             Debug.Log("Готовность генерацие:"+info.allSelect +
                 ", Индекс предмета:" + info.subject +
@@ -177,10 +178,10 @@ public class Do_code : MonoBehaviour
             panel.SetActive(false);
         }
     }
-    /* Здесь происходит генерацмя кода и его шифрование
-     * переменные a b c ключевые остальные рандом который не используеться для дезшифрования надо будет использовать именно их
-     * к сожалению это единственный путь как я могу передовать информацию между устройствами был вариант с использыванием sql но я не умею ей пользоваться) если у вас есть какие либо предложения то пожалуста сразу их пешите мне так как уже 18 февраля пробная защита а я почти нечиго не сделал от всей массы что планировалось только эта убогая передача кода нет ну что хоть макет пользователя есть
-     */
+    /* This is where the code is generated and encrypted
+  * variables a b c key the rest are random, which is not used for decryption, it will be necessary to use them
+ * unfortunately, this is the only way I can transfer information between devices there was an option with using sql, but I don't know how to use it) if you have any suggestions, please immediately send them to me since it's already 18 February trial protection and I almost did not do anything from the whole mass that was planned, only this poor code transfer is not there, well, at least there is a user layout
+  */
     public void MakeCode()
     {
         Info info = gameObject.GetComponent<Info>();
@@ -198,7 +199,8 @@ public class Do_code : MonoBehaviour
 
         Debug.Log(code.text);
     }
-    // здесь происходит перемещение между экраннами
+    // this is where the movement between screens takes place
+
     public void RHRH(int a)
     {
         Info info = gameObject.GetComponent<Info>();
@@ -216,6 +218,6 @@ public class Do_code : MonoBehaviour
             firstScreen.gameObject.SetActive(false);
             secondScreen.gameObject.SetActive(true);
         }
-    }// основная проблема в том что нажатие кнопок происходит через рас тоесть вы можете нажать на кнопку но переменная a1 и a2 может остаться прежней прикол в том что это иногда рабботает а иногда нет
-}// такжи хотеелось бы узнать как сделать градиент в юнити и как округлять кнопки 
-// по поводу вопросов и пожеланиях я всегда готов ответить
+    }// the main problem is that the buttons are pressed through the race, that is, you can press the button, but the variable a1 and a2 may remain the same the joke is that it sometimes works and sometimes not
+}// I would also like to know how to make a gradient in unity and how to round the buttons
+ // for questions and wishes, I am always ready to answer
